@@ -7,9 +7,8 @@ import com.lenovo.kotlinvideo.adapter.FoodAdapter
 import com.lenovo.kotlinvideo.api.FoodApi
 import com.lenovo.kotlinvideo.bean.FoodBean
 import com.lenovo.kotlinvideo.ui.base.BaseActivity
-import retrofit2.Callback
-import retrofit2.Retrofit
-import retrofit2.create
+import retrofit2.*
+import java.util.*
 
 class MainActivity : BaseActivity() {
     private var  reclerview : RecyclerView ?=null;
@@ -24,12 +23,23 @@ class MainActivity : BaseActivity() {
         reclerview=findViewById(R.id.recyclerView)
         reclerview?.layoutManager=LinearLayoutManager(this)
         var adapter=FoodAdapter(this,foodData)
-        reclerview!!.adapter=adapter
+        reclerview!!.adapter=adapter 
+        
     }
     override fun initData() {
-        retrofit=Retrofit.Builder().baseUrl("").build()
+
+
         var foodApi=retrofit!!.create(FoodApi::class.java)
-        foodApi.getFoodMenu("584be421b1413d5eb0340d422d5b0d53").
+        foodApi.getFoodMenu("584be421b1413d5eb0340d422d5b0d53").enqueue(object : Callback<FoodBean> {
+            override fun onFailure(call: Call<FoodBean>, t: Throwable) {
+
+            }
+
+            override fun onResponse(call: Call<FoodBean>, response: Response<FoodBean>) {
+                =response.body().toString()
+            }
+
+        })
     }
 
 }
