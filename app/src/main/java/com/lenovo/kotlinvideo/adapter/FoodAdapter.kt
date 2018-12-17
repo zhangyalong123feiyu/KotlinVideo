@@ -14,6 +14,10 @@ import com.lenovo.kotlinvideo.bean.FoodBean
 class FoodAdapter(context: Context?,foodData:FoodBean?) : RecyclerView.Adapter<FoodAdapter.ViewHolder>() {
     private var context: Context?=null
     private var foodData:FoodBean?=null
+    init {
+        this.context=context
+        this.foodData=foodData
+    }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
         val view= LayoutInflater.from(context).inflate(R.layout.item_food,null);
