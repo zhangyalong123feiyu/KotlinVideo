@@ -15,8 +15,6 @@ import java.util.*
 
 class MainActivity : BaseActivity(),FoodView {
     private var  reclerview : RecyclerView ?=null;
-    private var foodData:FoodBean ?=null
-    private var retrofit:Retrofit ?=null
     private var TAG:String=MainActivity::class.java.simpleName
     override fun getLayoutId(): Int {
         return R.layout.activity_main

@@ -1,6 +1,7 @@
 package com.lenovo.kotlinvideo.mvp.presenter
 
 import com.lenovo.kotlinvideo.bean.FoodBean
+import com.lenovo.kotlinvideo.bean.FoodDetailBean
 import com.lenovo.kotlinvideo.mvp.model.FoodModel
 import com.lenovo.kotlinvideo.mvp.view.FoodView
 import retrofit2.Call
@@ -28,4 +29,5 @@ class FoodPresenter(foodView :FoodView) {
             }
         })
     }
+
 }
