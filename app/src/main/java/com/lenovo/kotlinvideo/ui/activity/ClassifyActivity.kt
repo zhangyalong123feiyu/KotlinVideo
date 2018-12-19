@@ -1,8 +1,10 @@
 package com.lenovo.kotlinvideo.ui.activity
 
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.lenovo.kotlinvideo.R
 import com.lenovo.kotlinvideo.adapter.FoodDetailAdapter
@@ -34,7 +36,7 @@ class ClassifyActivity :BaseActivity(),FoodDetailView{
     override fun initView() {
         title=findViewById(R.id.title)
         classRecy=findViewById(R.id.classfiyRecycl)
-        var layoutManager=GridLayoutManager(this,4)
+        var layoutManager= LinearLayoutManager(this)
         classRecy!!.layoutManager=layoutManager
 
         var content=intent.getStringExtra("title");
@@ -43,8 +45,8 @@ class ClassifyActivity :BaseActivity(),FoodDetailView{
 
     }
 
-    override fun getFoodDetailSucess(listData: List<FoodDetailBean.ResultBean.DataBean>) {
-       var foodDetailAdapter=FoodDetailAdapter(this,listData,R.layout.item_food)
+    override fun getFoodDetailSucess(listData: List<FoodDetailBean.ResultBean.DataBean.StepsBean>) {
+       var foodDetailAdapter=FoodDetailAdapter(this,listData,R.layout.item_food_detail)
         classRecy!!.adapter=foodDetailAdapter
     }
 

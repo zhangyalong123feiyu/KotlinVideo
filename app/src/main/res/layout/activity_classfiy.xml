@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:background="#ba8c8c">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:textSize="45sp"
         android:gravity="center"
+        android:textColor="#74caa8"
         />
 
     <android.support.v7.widget.RecyclerView
         android:layout_below="@id/title"
         android:id="@+id/classfiyRecycl"
+        android:paddingTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

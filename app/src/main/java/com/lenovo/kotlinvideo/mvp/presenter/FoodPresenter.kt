@@ -1,5 +1,6 @@
 package com.lenovo.kotlinvideo.mvp.presenter
 
+import com.lenovo.kotlinvideo.bean.Food
 import com.lenovo.kotlinvideo.bean.FoodBean
 import com.lenovo.kotlinvideo.bean.FoodDetailBean
 import com.lenovo.kotlinvideo.mvp.model.FoodModel
@@ -16,14 +17,14 @@ class FoodPresenter(foodView :FoodView) {
         foodModel= FoodModel()
     }
 
-    fun getFoodCatergry(key :String){
-        foodModel!!.getFoodCategory(key,object :Callback<FoodBean>{
-            override fun onFailure(call: Call<FoodBean>, t: Throwable) {
+    fun getFoodCatergry(key :String,cid:Int){
+        foodModel!!.getFoodIndex(key,cid,object :Callback<Food>{
+            override fun onFailure(call: Call<Food>, t: Throwable) {
                 view.onGetFoodMenuFailed(t.message!!)
             }
 
-            override fun onResponse(call: Call<FoodBean>, response: Response<FoodBean>) {
-                var foodBean:FoodBean = response.body()!!
+            override fun onResponse(call: Call<Food>, response: Response<Food>) {
+                var foodBean:Food = response.body()!!
 
                 view.onGetFoodMenuSuccess(foodBean)
             }

@@ -22,8 +22,8 @@ class FoodDetailPresenter(foodDetailView: FoodDetailView){
             }
 
             override fun onResponse(call: Call<FoodDetailBean>, response: Response<FoodDetailBean>) {
-                var FoodDetailBean=response.body()
-                foodDetailView!!.getFoodDetailSucess(FoodDetailBean!!.result!!.data!!)
+                var foodDetailBean=response.body()
+                foodDetailView!!.getFoodDetailSucess(foodDetailBean!!.result!!.data!!.get(0).steps!!)
             }
         })
     }
