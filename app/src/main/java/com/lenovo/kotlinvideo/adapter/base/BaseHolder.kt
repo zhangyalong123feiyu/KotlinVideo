@@ -1,4 +1,4 @@
-package com.lenovo.kotlinvideo.adapter
+package com.lenovo.kotlinvideo.adapter.base
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import com.lenovo.kotlinvideo.R
 
 class BaseHolder(itemView:View ) : RecyclerView.ViewHolder(itemView) {
 
@@ -22,8 +21,8 @@ class BaseHolder(itemView:View ) : RecyclerView.ViewHolder(itemView) {
     }
 
     companion object {
-         fun  <T : BaseHolder > getBaseHolder( context:Context, parent: ViewGroup, layoutId: Int) : T {
-             return  BaseHolder(LayoutInflater.from(context).inflate(layoutId,parent,false)) as T
+         fun  <T : BaseHolder> getBaseHolder(context:Context, parent: ViewGroup, layoutId: Int) : T {
+             return  BaseHolder(LayoutInflater.from(context).inflate(layoutId, parent, false)) as T
          }
     }
 
@@ -46,17 +45,17 @@ class BaseHolder(itemView:View ) : RecyclerView.ViewHolder(itemView) {
     }
 
     //设置textview
-   open  fun setTextView(id: Int,descrip:String) : BaseHolder{
+   open  fun setTextView(id: Int,descrip:String) : BaseHolder {
         getView<TextView>(id).setText(descrip)
         return this
     }
 
     //设置imageview
-    fun setImageView(id: Int,url:String) :BaseHolder{
+    fun setImageView(id: Int,url:String) : BaseHolder {
         Glide.with(itView!!.context).load(url).into(getView(id))
         return this
     }
-    fun setImageView(id: Int,res:Int):BaseHolder{
+    fun setImageView(id: Int,res:Int): BaseHolder {
         getView<ImageView>(id).setImageResource(res)
         return this
     }

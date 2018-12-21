@@ -1,10 +1,10 @@
-package com.lenovo.kotlinvideo.adapter
+package com.lenovo.kotlinvideo.adapter.base
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 
- abstract class SimpleBaseAdapter<T>(context: Context,listData:List<T>,layoutId:Int) : RecyclerView.Adapter<BaseHolder>() {
+abstract class SimpleBaseAdapter<T>(context: Context,listData:List<T>,layoutId:Int) : RecyclerView.Adapter<BaseHolder>() {
     private var context:Context
     private var listData:List<T>
     private var layoutId:Int
@@ -14,7 +14,7 @@ import android.view.ViewGroup
         this.layoutId=layoutId
     }
     override fun onCreateViewHolder(p0: ViewGroup, viewType: Int): BaseHolder {
-      return  BaseHolder.getBaseHolder(context,p0,layoutId)
+      return BaseHolder.getBaseHolder(context, p0, layoutId)
     }
 
     override fun getItemCount(): Int {
