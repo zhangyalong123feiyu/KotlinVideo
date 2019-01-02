@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RetrofitUtils {
 
     companion object {                         //相当于Java中的静态方法
-        private lateinit var retrofit: Retrofit
+        private var retrofit: Retrofit ?=null
 
         fun getRetrofit(): Retrofit {
 

@@ -10,7 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        flavorDimensions "versionCode"
+//        flavorDimensions "versionCode"
     }
     buildTypes {
         release {
@@ -18,21 +18,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    productFlavors {
-        first {
-            minSdkVersion 21
-            applicationId 'com.lenovo.kotlinvideo.first'
-            targetSdkVersion 28
-            versionName '1.0'
-        }
-        second {
-            minSdkVersion 21
-            applicationId 'com.lenovo.kotlinvideo.second'
-            targetSdkVersion 28
-            versionName '1.0'
-        }
-    }
-}
+//    productFlavors {
+//        first {
+//            minSdkVersion 21
+//            applicationId 'com.lenovo.kotlinvideo.first'
+//            targetSdkVersion 28
+//            versionName '1.0'
+//        }
+//        second {
+//            minSdkVersion 21
+//            applicationId 'com.lenovo.kotlinvideo.second'
+//            targetSdkVersion 28
+//            versionName '1.0'
+//        }
+//    }
+//}
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
@@ -53,6 +53,7 @@ dependencies {
 repositories {
     mavenCentral()
 }
-kapt {
-    generateStubs = true
+//kapt {
+//    generateStubs = true
+//}
 }
