@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".VideoActivity"/>
+        <activity android:name=".SurfcacePlayer"/>
+        <service android:name=".RemoteService" android:process=":remote"></service>
     </application>
 
 </manifest>
