@@ -16,6 +16,10 @@ android {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
+        //加快编译速度。
+        dexOptions{
+            javaMaxHeapSize "6g"
+        }
 
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_8

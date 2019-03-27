@@ -1,8 +1,8 @@
 def config = rootProject.ext
-if (config.android.videoIsMoudle) {
-    apply plugin: 'com.android.library'
-} else {
+if (config.android.videoMoudleisApp) {
     apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
 }
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
@@ -13,7 +13,7 @@ android {
     compileSdkVersion config.android.compileSdkVersion
 
     defaultConfig {
-        if (!config.android.videoIsMoudle) {
+        if (config.android.videoMoudleisApp) {
             applicationId "com.example.videomodule"
         }
         minSdkVersion config.android.minSdkVersion
@@ -40,12 +40,15 @@ android {
     sourceSets {
 
         main {
-            if (config.android.videoIsMoudle) {
+            if (config.android.videoMoudleisApp) {
                 manifest.srcFile 'src/debug/AndroidManifest.xml'
+                println("debug清单")
             } else {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
+                println("正常清单")
                 java {
-                    exclude '**/debug/**'
+                    //module 模式下要 排除src/test/文件夹下的所有文件
+                    exclude 'src/debug/'
                 }
             }
         }

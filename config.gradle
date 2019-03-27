@@ -4,7 +4,7 @@ ext {
             minSdkVersion   : 22,
             targetSdkVersion: 28,
             compileSdkVersion:28,
-            videoIsMoudle:true,
+            videoMoudleisApp:false,
     ]
 
     dependencies=[
